@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mxeve.github.io</id>
     <title>mxeve_blog</title>
-    <updated>2020-10-03T12:33:46.959Z</updated>
+    <updated>2020-10-03T12:36:39.859Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mxeve.github.io"/>
     <link rel="self" href="https://mxeve.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>世间当真有两全法，江山深处抚你风华</subtitle>
     <logo>https://mxeve.github.io/images/avatar.png</logo>
     <icon>https://mxeve.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, mxeve_blog</rights>
