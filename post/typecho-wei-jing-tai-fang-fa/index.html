@@ -30,29 +30,9 @@
       
         <div class="animated fadeInLeft" style="animation-delay: 0.4s">
           <p class="my-4 text-gray-600 font-light hidden lg:block">
-            世间当真有两全法，江山深处抚你风华
+            文章目录
           </p>
-          <div class="animated fadeInLeft social-container hidden lg:block" style="animation-delay: 0.6s">
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
+          <div class="toc-container hidden lg:block">
             
           </div>
         </div>
@@ -97,18 +77,59 @@
 </div>
 <div class="mask" onclick="closeMenu()">
 </div>
-      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4">
-        <h2 class="text-lg text-gray-700 mb-8">
-          <i class="ri-bookmark-2-line"></i> 标签云
-        </h2>
-        <div class="tags-container">
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">Typecho伪静态方法</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2020-10-04 / 1 min read
+        </div>
+        
+        <div class="post-content yue">
+          <p>复制下方Typecho Apache伪静态伪静态规则，保存并命名为.htaccess，将.htaccess上传到网站根目录即可（宝塔直接添加以下规则）</p>
+<!-- more -->
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+<p>复制下方Typecho Nginx伪静态规则，保存为typecho.conf，在Nginx的网站配置文件中调用typecho.conf伪静态规则：（宝塔直接添加以下规则）</p>
+<!-- more -->
+<p>if (-f $request_filename/index.html){<br>
+rewrite (.<em>) $1/index.html break;<br>
+}<br>
+if (-f $request_filename/index.php){<br>
+rewrite (.</em>) $1/index.php;<br>
+}<br>
+if (!-e $request_filename){<br>
+rewrite (.*) /index.php;<br>
+}</p>
+<!-- more -->
+<p>然后在Typecho控制台选择“设置”--“永久链接”中，启用重写功能，在自定义文章路径中个性化定义写入：/{cid}.html</p>
+
+        </div>
+
+        
+
+
+        <div class="flex justify-between py-8">
           
-            <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://mxeve.github.io/tag/uslCYPSeA/" :style="{ 'animation-delay': `${0 * 0.2}s` }">
-              <span class="flex-auto">Gridea</span>
-              <span class="flex rounded-full bg-gray-200 px-2 py-1 text-xs ml-1">1</span>
-            </a>
+
+          
+            <div class="next-post">
+              <a href="https://mxeve.github.io/post/hello-gridea/">
+                <h3 class="post-title">
+                  Hello Gridea
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
           
         </div>
+
+        
+
       </div>
     </div>
 

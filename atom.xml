@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mxeve.github.io</id>
     <title>mxeve_blog</title>
-    <updated>2020-10-03T12:36:39.859Z</updated>
+    <updated>2020-10-04T05:09:14.542Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mxeve.github.io"/>
     <link rel="self" href="https://mxeve.github.io/atom.xml"/>
@@ -10,6 +10,39 @@
     <logo>https://mxeve.github.io/images/avatar.png</logo>
     <icon>https://mxeve.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, mxeve_blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Typecho伪静态方法]]></title>
+        <id>https://mxeve.github.io/post/typecho-wei-jing-tai-fang-fa/</id>
+        <link href="https://mxeve.github.io/post/typecho-wei-jing-tai-fang-fa/">
+        </link>
+        <updated>2020-10-04T05:00:45.000Z</updated>
+        <summary type="html"><![CDATA[<p>复制下方Typecho Apache伪静态伪静态规则，保存并命名为.htaccess，将.htaccess上传到网站根目录即可（宝塔直接添加以下规则）</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>复制下方Typecho Apache伪静态伪静态规则，保存并命名为.htaccess，将.htaccess上传到网站根目录即可（宝塔直接添加以下规则）</p>
+<!-- more -->
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+<p>复制下方Typecho Nginx伪静态规则，保存为typecho.conf，在Nginx的网站配置文件中调用typecho.conf伪静态规则：（宝塔直接添加以下规则）</p>
+<!-- more -->
+<p>if (-f $request_filename/index.html){<br>
+rewrite (.<em>) $1/index.html break;<br>
+}<br>
+if (-f $request_filename/index.php){<br>
+rewrite (.</em>) $1/index.php;<br>
+}<br>
+if (!-e $request_filename){<br>
+rewrite (.*) /index.php;<br>
+}</p>
+<!-- more -->
+<p>然后在Typecho控制台选择“设置”--“永久链接”中，启用重写功能，在自定义文章路径中个性化定义写入：/{cid}.html</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://mxeve.github.io/post/hello-gridea/</id>
